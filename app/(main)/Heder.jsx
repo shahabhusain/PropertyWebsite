@@ -25,22 +25,21 @@ const Header = () => {
     const scrollHandler = () => {
       window.scrollY > 50 ? setIsActive(true) : setIsActive(false);
     };
-    window.addEventListener("scroll", scrollHandler);
+    scrollHandler();
 
+    window.addEventListener("scroll", scrollHandler);
     return () => window.removeEventListener("scroll", scrollHandler);
   }, []);
 
   return (
     <div
-      className={`fixed top-0 w-[100%] bg-[transparent] z-[10] flex items-center justify-between ${
-        isActive
-          ? "bg-[#000000] text-white shadow-md transition-all fixed w-full duration-300 ease-in-out pb-4"
-          : ""
+      className={`fixed top-0 w-full z-[10] flex items-center justify-between transition-all pb-4 duration-300 ease-in-out ${
+        isActive ? "bg-black text-white shadow-md" : "bg-transparent text-black"
       }`}
     >
       <div className="flex items-center w-[90%] pt-4 mx-auto justify-between">
         <Link href="/home">
-          <Image className=" w-[70px]" src={logo} alt="Logo" width={150} height={50} />
+          <Image className="w-[70px]" src={logo} alt="Logo" width={150} height={50} />
         </Link>
         <div className="list-none flex items-center gap-12">
           <Link href="/buy" className="cursor-pointer text-[20px] font-[500]">
@@ -62,11 +61,12 @@ const Header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button className="focus:border-none">
-                  {isActive ? (
-                    <Image src={whiteprofile} alt="Profile" width={40} height={40}  />
-                  ) : (
-                    <Image src={profile} alt="Profile" width={40} height={40} />
-                  )}
+                  <Image
+                    src={isActive ? whiteprofile : profile}
+                    alt="Profile"
+                    width={40}
+                    height={40}
+                  />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56 p-4 bg-black text-white">
@@ -81,10 +81,12 @@ const Header = () => {
                 </div>
                 <DropdownMenuSeparator />
                 <DropdownMenuLabel>Menu</DropdownMenuLabel>
-                <DropdownMenuRadioGroup >
-                  <DropdownMenuRadioItem value="Profile"><Link href='/profile'>Profile</Link></DropdownMenuRadioItem>
+                <DropdownMenuRadioGroup>
+                  <DropdownMenuRadioItem value="Profile">
+                    <Link href="/profile">Profile</Link>
+                  </DropdownMenuRadioItem>
                   <DropdownMenuRadioItem value="Profile Likes">
-                  <Link href='/profilelike'>Profile Like</Link>
+                    <Link href="/profilelike">Profile Like</Link>
                   </DropdownMenuRadioItem>
                   <DropdownMenuRadioItem value="Log Out">Log Out</DropdownMenuRadioItem>
                 </DropdownMenuRadioGroup>
