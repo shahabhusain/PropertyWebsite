@@ -7,7 +7,7 @@ import Link from "next/link";
 import profile from '@/public/assets/profile.png'
 const Footer = () => {
   return (
-    <div className="bg-black text-white py-10 mt-12 ">
+    <div className="bg-black text-white py-10 mt-20">
          <div className=" flex justify-between w-[90%] mx-auto" >
       {/*  */}
         <div>

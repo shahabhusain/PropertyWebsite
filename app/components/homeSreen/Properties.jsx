@@ -1,25 +1,35 @@
-"use client";
+"use client"
 
-import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import icon1 from "../../../public/assets/icon1.png";
 import icon2 from "../../../public/assets/icon2.png";
 import icon3 from "../../../public/assets/icon3.png";
-import like from "../../../public/assets/like.png";
-import { propertiesData } from "../../lib/StaticData";
+import like from "../../../public/assets/likes.png";
+import dislike from "../../../public/assets/like.png";
+import { BuyPropertiesData } from "../../lib/StaticData";
+import { useCartStore } from "../../store/cart-store";
 
 const Properties = () => {
   const router = useRouter();
+  const { cart, toggleCart } = useCartStore();
+  const [showAll, setShowAll] = useState(false);
 
   const handleNavigate = (id) => {
     router.push(`/home/${id}`);
   };
 
+  const itemsToShow = showAll ? BuyPropertiesData : BuyPropertiesData.slice(0, 6);
+
+  const isProductInCart = (item) => {
+    return cart.some((cartItem) => cartItem.id === item.id);
+  };
+
   return (
     <div className="flex flex-col justify-center gap-12 items-center">
       <div className="pt-[12rem] w-[90%] mx-auto grid grid-cols-3 gap-4">
-        {propertiesData.map((item) => (
+        {itemsToShow.map((item) => (
           <div
             key={item.id}
             className="relative w-[445px] group cursor-pointer"
@@ -46,11 +56,28 @@ const Properties = () => {
                 </button>
               </div>
             </div>
-            <Image className="absolute top-6 right-6 w-[40px]" src={like} alt="Like" />
+            <button
+              className="absolute top-6 right-6 w-[40px]"
+              onClick={(e) => {
+                e.stopPropagation(); 
+                toggleCart(item);
+              }}
+            >
+              {isProductInCart(item) ? (
+                <Image src={like} alt="liked" />
+              ) : (
+                <Image src={dislike} alt="not liked" />
+              )}
+            </button>
           </div>
         ))}
       </div>
-      <button className="text-white bg-[#AE8E50] py-2 w-fit px-12 rounded-md">See All</button>
+      <button
+        className="text-white bg-[#AE8E50] py-2 w-fit px-12 rounded-md"
+        onClick={() => setShowAll(!showAll)}
+      >
+        {showAll ? "Show Less" : "Show More"}
+      </button>
     </div>
   );
 };
