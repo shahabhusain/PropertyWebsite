@@ -14,20 +14,30 @@ import { useCartStore } from "../../store/cart-store";
 const Properties = () => {
   const router = useRouter();
   const { cart, toggleCart } = useCartStore();
-  const [showAll, setShowAll] = useState(false);
+  const [visibleItemsCount, setVisibleItemsCount] = useState(6); // Start with 6 items
 
   const handleNavigate = (id) => {
     router.push(`/home/${id}`);
   };
 
-  const itemsToShow = showAll ? BuyPropertiesData : BuyPropertiesData.slice(0, 6);
-
   const isProductInCart = (item) => {
     return cart.some((cartItem) => cartItem.id === item.id);
   };
 
+  // Show only the number of items specified by visibleItemsCount
+  const itemsToShow = BuyPropertiesData.slice(0, visibleItemsCount);
+
+  const handleShowMore = () => {
+    setVisibleItemsCount((prevCount) => prevCount + 6); // Show 6 more items
+  };
+
+  const handleShowLess = () => {
+    setVisibleItemsCount(6); // Show only 6 items again
+  };
+
   return (
     <div className="flex flex-col justify-center gap-12 items-center">
+      {/* Property cards grid */}
       <div className="pt-[12rem] w-[90%] mx-auto grid grid-cols-3 gap-4">
         {itemsToShow.map((item) => (
           <div
@@ -59,8 +69,8 @@ const Properties = () => {
             <button
               className="absolute top-6 right-6 w-[40px]"
               onClick={(e) => {
-                e.stopPropagation(); 
-                toggleCart(item);
+                e.stopPropagation(); // Prevents the parent onClick from firing
+                toggleCart(item); // Toggles the item in the cart
               }}
             >
               {isProductInCart(item) ? (
@@ -72,12 +82,23 @@ const Properties = () => {
           </div>
         ))}
       </div>
-      <button
-        className="text-white bg-[#AE8E50] py-2 w-fit px-12 rounded-md"
-        onClick={() => setShowAll(!showAll)}
-      >
-        {showAll ? "Show Less" : "Show More"}
-      </button>
+
+      {/* Show More / Show Less button */}
+      {visibleItemsCount < BuyPropertiesData.length ? (
+        <button
+          className="text-white bg-[#AE8E50] py-2 w-fit px-12 rounded-md"
+          onClick={handleShowMore}
+        >
+          Show More
+        </button>
+      ) : (
+        <button
+          className="text-white bg-[#AE8E50] py-2 w-fit px-12 rounded-md"
+          onClick={handleShowLess}
+        >
+          Show Less
+        </button>
+      )}
     </div>
   );
 };

@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import React from 'react'
 import comunity from '../../../public/assets/comunity.png'
+import comunity1 from '../../../public/assets/comunity1.png'
+import comunity2 from '../../../public/assets/comunity2.png'
+import comunity3 from '../../../public/assets/comunity4.png'
 const Community = () => {
   return (
  <div className=' flex items-center justify-center flex-col mt-16'>
@@ -17,7 +20,7 @@ const Community = () => {
        </div>
 
        <div className=''>
-       <Image src={comunity} className=' w-full' alt='image' />
+       <Image src={comunity1} className=' w-full' alt='image' />
         <div className=' bg-black py-6 flex flex-col gap-3'>
             <button className=' py-2 px-5 text-white bg-[#AE8E50] text-[14px] font-[600] w-fit'>From 1,060,000 AED</button>
             <h1 className=' text-[18px] font-[600] text-white ml-2'>Downtown Dubai</h1>
@@ -26,7 +29,7 @@ const Community = () => {
        </div>
 
        <div className=''>
-       <Image src={comunity} className=' w-full' alt='image' />
+       <Image src={comunity2} className=' w-full' alt='image' />
         <div className=' bg-black py-6 flex flex-col gap-3'>
             <button className=' py-2 px-5 text-white bg-[#AE8E50] text-[14px] font-[600] w-fit'>From 1,060,000 AED</button>
             <h1 className=' text-[18px] font-[600] text-white ml-2'>Downtown Dubai</h1>
@@ -35,7 +38,7 @@ const Community = () => {
        </div>
 
        <div className=''>
-       <Image src={comunity} className=' w-full' alt='image' />
+       <Image src={comunity3} className=' w-full' alt='image' />
         <div className=' bg-black py-6 flex flex-col gap-3'>
             <button className=' py-2 px-5 text-white bg-[#AE8E50] text-[14px] font-[600] w-fit'>From 1,060,000 AED</button>
             <h1 className=' text-[18px] font-[600] text-white ml-2'>Downtown Dubai</h1>

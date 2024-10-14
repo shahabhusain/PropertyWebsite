@@ -22,7 +22,7 @@ const ChatRobot = () => {
       open={isOpen}
       onOpenChange={(open) => (open ? openModal() : closeModal())}
     >
-      <DialogContent className="sm:max-w-[425px] h-[489px] bg-[#f8f8f8]">
+      <DialogContent className="sm:max-w-[425px] h-[559px] bg-[#f8f8f8]">
         <div className="flex flex-col items-center gap-6">
           {/* Chatbot header */}
           <div className="flex items-center gap-2">
@@ -31,7 +31,7 @@ const ChatRobot = () => {
           </div>
 
           {/* Display messages above input */}
-          <div className="flex flex-col w-full gap-2 p-2 bg-white rounded-md h-[300px] overflow-y-auto">
+          <div className="flex flex-col w-full gap-2 p-2 h-[370px] overflow-y-auto">
             {messages.length > 0 ? (
               messages.map((message, index) => (
                 <div key={index} className="text-left bg-gray-200 p-2  //////////////////// rounded-md ">

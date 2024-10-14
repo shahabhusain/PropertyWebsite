@@ -11,13 +11,24 @@ import Image from 'next/image';
 import { useCartStore } from "../../store/cart-store";
 
 const UserProfileLike = () => {
-  const [likedItems, setLikedItems] = useState(new Set());
+  const [likedCartItems, setLikedCartItems] = useState(new Set());
+  const [likedOffPlanItems, setLikedOffPlanItems] = useState(new Set());
   const [open, setOpen] = useState(1);
-  
-  const { cart, cart1, removeCart, removeCart1, toggleCart1 } = useCartStore();
 
-  const handleToggleLike = (itemId) => {
-    setLikedItems((prevLikedItems) => {
+  const { cart, cart1, removeCart, removeCart1, toggleCart, toggleCart1 } = useCartStore();
+
+  // Toggle like for items in cart
+  const handleToggleLikeCart = (itemId) => {
+    setLikedCartItems((prevLikedItems) => {
+      const newLikedItems = new Set(prevLikedItems);
+      newLikedItems.has(itemId) ? newLikedItems.delete(itemId) : newLikedItems.add(itemId);
+      return newLikedItems;
+    });
+  };
+
+  // Toggle like for items in Off Plan Property
+  const handleToggleLikeOffPlan = (itemId) => {
+    setLikedOffPlanItems((prevLikedItems) => {
       const newLikedItems = new Set(prevLikedItems);
       newLikedItems.has(itemId) ? newLikedItems.delete(itemId) : newLikedItems.add(itemId);
       return newLikedItems;
@@ -26,12 +37,12 @@ const UserProfileLike = () => {
 
   const handleRemoveFromCart = (productId) => {
     removeCart(productId); // Remove from main cart
-    removeCart1(productId); // Remove from off-plan cart
-    handleToggleLike(productId); // Update liked items
+    handleToggleLikeCart(productId); // Update liked items in the main cart
   };
 
-  const handleNavigate = (itemId) => {
-    // Navigation logic here (if needed)
+  const handleRemoveFromOffPlan = (productId) => {
+    removeCart1(productId); // Remove from off-plan cart
+    handleToggleLikeOffPlan(productId); // Update liked items in the off-plan cart
   };
 
   const renderCartItems = () => (
@@ -57,8 +68,14 @@ const UserProfileLike = () => {
               </button>
             </div>
           </div>
-          <button className="absolute top-6 right-6 w-[40px]" onClick={() => handleRemoveFromCart(item.id)}>
-            <Image src={likedItems.has(item.id) ? like : likes} alt={likedItems.has(item.id) ? "liked" : "not liked"} />
+          <button
+            className="absolute top-6 right-6 w-[40px]"
+            onClick={() => handleRemoveFromCart(item.id)}
+          >
+            <Image
+              src={likedCartItems.has(item.id) ? like : likes}
+              alt={likedCartItems.has(item.id) ? "liked" : "not liked"}
+            />
           </button>
         </div>
       ))}
@@ -68,7 +85,7 @@ const UserProfileLike = () => {
   const renderOffPlanProperty = () => (
     <div className="grid grid-cols-3 gap-6 my-7">
       {cart1.map((item) => (
-        <div key={item.id} className="relative w-[445px] group" onClick={() => handleNavigate(item.id)}>
+        <div key={item.id} className="relative w-[445px] group">
           <Image src={item.img} alt={`${item.keyword} image`} className="w-full h-auto" />
           <div className="absolute top-[24rem] left-5 bg-[#5f5b5b98] py-6 px-5 rounded-md transition-colors duration-300 group-hover:bg-black">
             <h1 className="text-[18px] font-[600] text-white max-w-[355px]">{item.keyword}</h1>
@@ -92,14 +109,14 @@ const UserProfileLike = () => {
             onClick={(e) => {
               e.stopPropagation();
               toggleCart1(item);
-              handleToggleLike(item.id);
+              handleToggleLikeOffPlan(item.id);
             }}
             className="absolute top-6 right-6 w-[40px]"
             aria-label={cart1.some((cartItem) => cartItem.id === item.id) ? "Remove from cart" : "Add to cart"}
           >
-            <Image 
-              src={cart1.some((cartItem) => cartItem.id === item.id) ? dislike : like} 
-              alt={cart1.some((cartItem) => cartItem.id === item.id) ? "liked" : "not liked"} 
+            <Image
+              src={likedOffPlanItems.has(item.id) ? like : dislike}
+              alt={likedOffPlanItems.has(item.id) ? "liked" : "not liked"}
             />
           </button>
         </div>
@@ -110,7 +127,7 @@ const UserProfileLike = () => {
   return (
     <div>
       <h1 className="text-[35px] text-black font-[500]">Properties you liked ({cart.length})</h1>
-      <div className='flex items-center gap-6 my-7'>
+      <div className="flex items-center gap-6 my-7">
         <button onClick={() => setOpen(1)} className={`${open === 0 ? "border-[#AE8E50] border-[1px] py-2 px-5 rounded-full text-black" : "bg-[#AE8E50] py-2 px-5 rounded-full text-white"}`}>
           Want to Buy
         </button>

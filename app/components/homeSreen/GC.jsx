@@ -2,6 +2,8 @@
 import Image from "next/image";
 import React from "react";
 import Gc from "../../../public/assets/GC.png";
+import what from "../../../public/assets/what.png";
+import Chat from "../../../public/assets/chat.png";
 import { useCartStore } from "../../store/cart-store";
 import WhatsApp from "../Modals/WhatsApp";
 import ChatRobot from "../Modals/ChatRobot";
@@ -72,15 +74,15 @@ const GC = () => {
      <div>
      <button
         onClick={openModal}
-        className="text-[18px] font-[400] text-white bg-black absolute right-0 mt-6 py-2 px-5 rounded-md"
+        className="absolute right-0 w-[50px] mt-5 "
       >
-        Open Modal
+        <Image src={Chat} width={50} />
       </button>
       <button
         onClick={openChat}
-        className="text-[18px] font-[400] text-white bg-black absolute right-[12rem] mt-6 py-2 px-5 rounded-md"
+        className=" absolute right-[6rem] w-[50px] mt-5"
       >
-        Open Moda1
+        <Image src={what} width={50} />
       </button>
      </div>
       <WhatsApp />

@@ -26,6 +26,7 @@ const PropertyDetail = ({ params }) => {
 
   return (
     <div className=" w-[90%] mx-auto mt-32">
+        <h1>Property Detail Page for ID: {id}</h1>
       <div>
         <div className=" flex items-center justify-between">
           <h1 className=" text-[35px] font-[600] text-black max-w-[555px]">
@@ -255,20 +256,6 @@ const PropertyDetail = ({ params }) => {
           }
         </div>
       </div>
-
-      <h1>Property Detail Page for ID: {id}</h1>
-      <h2>{property?.keyword}</h2>
-      <Image
-        src={property?.img}
-        alt="Property Image"
-        width={500}
-        height={300}
-      />
-      <p>Place: {property?.place}</p>
-      <p>Bedrooms: {property?.bed}</p>
-      <p>Bathrooms: {property?.bath}</p>
-      <p>Size: {property?.Sqft} sq.ft</p>
-      <p>Price: AED {property?.maxprice}</p>
     </div>
   );
 };
