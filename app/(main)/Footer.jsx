@@ -38,12 +38,13 @@ const Footer = () => {
         <li>Contact</li>
       </ul>
 
-      <a
+      {/* <a
         href="https://www.google.com/maps/place/Dubai+Marina,+Dubai,+United+Arab+Emirates/"
         target="_blank"
       >
         <Image src={map} alt='image' />
-      </a>
+      </a> */}
+      <Link href="/map"><Image src={map} alt='image' /></Link>
       <p>123 Zayed Road, Dubai Marina, Dubai, United Arab Emirates</p>
        </div>
       {/*  */}
