@@ -227,7 +227,7 @@ export const OfflinePropertiesData = [
 
     {
         id:2,
-        img:pro1,
+        img:pro2,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -241,7 +241,7 @@ export const OfflinePropertiesData = [
 
     {
         id:3,
-        img:pro1,
+        img:pro3,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -255,7 +255,7 @@ export const OfflinePropertiesData = [
 
     {
         id:4,
-        img:pro1,
+        img:pro4,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -269,7 +269,7 @@ export const OfflinePropertiesData = [
 
     {
         id:5,
-        img:pro1,
+        img:pro5,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -283,7 +283,7 @@ export const OfflinePropertiesData = [
 
     {
         id:6,
-        img:pro1,
+        img:pro6,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -298,7 +298,7 @@ export const OfflinePropertiesData = [
 
     {
         id:7,
-        img:pro1,
+        img:pro6,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -312,7 +312,7 @@ export const OfflinePropertiesData = [
 
     {
         id:8,
-        img:pro1,
+        img:pro5,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -325,7 +325,7 @@ export const OfflinePropertiesData = [
     },
     {
         id:9,
-        img:pro1,
+        img:pro4,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -339,7 +339,7 @@ export const OfflinePropertiesData = [
 
     {
         id:10,
-        img:pro1,
+        img:pro3,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -353,7 +353,7 @@ export const OfflinePropertiesData = [
 
     {
         id:11,
-        img:pro1,
+        img:pro2,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -382,7 +382,7 @@ export const OfflinePropertiesData = [
 
     {
         id:13,
-        img:pro1,
+        img:pro2,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -396,7 +396,7 @@ export const OfflinePropertiesData = [
 
     {
         id:14,
-        img:pro1,
+        img:pro3,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -409,7 +409,7 @@ export const OfflinePropertiesData = [
     },
   {
         id:15,
-        img:pro1,
+        img:pro4,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -423,7 +423,7 @@ export const OfflinePropertiesData = [
 
     {
         id:16,
-        img:pro1,
+        img:pro5,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",
@@ -437,7 +437,7 @@ export const OfflinePropertiesData = [
 
     {
         id:17,
-        img:pro1,
+        img:pro6,
          title:"Starting From",
          price:"AED 850,888",
          title1:"HAYA on the Park",

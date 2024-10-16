@@ -67,7 +67,7 @@ const OffPlane = () => {
         {currentItems.map((item, index) => (
           <div key={index} className="relative w-[445px] group" onClick={() => handleNavigate(item.id)}>
             <Image src={item?.img} alt='image' />
-            <div className="absolute top-[17rem] left-5 bg-[#5f5b5b98] py-6 px-5 rounded-md transition-colors duration-300 group-hover:bg-black flex flex-col gap-4">
+            <div className="absolute top-[17rem] left-2 bg-[#5f5b5b98] py-6 px-5 rounded-md transition-colors duration-300 group-hover:bg-black flex flex-col gap-4">
               <h1 className=" text-[20px] font-[600] text-white flex items-center justify-between">{item.title} <span>{item.price}</span></h1>
                <h2 className=" text-white text-[18px] font-[600]">{item.title1}</h2>
                <p className=" text-[15px] font-[300] text-white">{item.desc1}</p>
