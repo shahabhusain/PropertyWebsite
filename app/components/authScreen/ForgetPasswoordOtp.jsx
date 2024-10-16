@@ -17,10 +17,10 @@ const ForgetPasswoordOtp = ({ setOpen }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='w-1/2 flex flex-col gap-3'>
+    <form onSubmit={handleSubmit} className='w-1/2 flex flex-col gap-3 px-14 mt-12'>
       <div className='ml-2'>
         <h1 className='text-[#AE8E50] text-[35px] font-[600]'>OTP Verification</h1>
-        <p className='text-[15px] font-[400] text-[#000] mt-3'>
+        <p className='text-[16px] font-[500] text-[#000] mt-3'>
           Enter the OTP sent to your email
         </p>
       </div>
@@ -49,7 +49,7 @@ const ForgetPasswoordOtp = ({ setOpen }) => {
         <button className='border-[#000] border-[2px] text-[#000] rounded-md font-medium py-2 px-4 w-full'>
           Resend OTP
         </button>
-        <h1 className='text-[14px] font-[400] text-center'>
+        <h1 className='text-[14px] font-[400] text-center mt-3'>
           Don’t have an account?{' '}
           <button type="button" onClick={() => setOpen(0)} className='underline text-[#AE8E50]'>
             SIGN UP

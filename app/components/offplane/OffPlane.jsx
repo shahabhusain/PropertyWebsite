@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import icon1 from "../../../public/assets/icon1.png";
-import icon2 from "../../../public/assets/icon2.png";
-import icon3 from "../../../public/assets/icon3.png";
 import like from "../../../public/assets/like.png";
 import likes from "../../../public/assets/likes.png";
 import { OfflinePropertiesData } from "../../lib/StaticData";
 import { useRouter } from "next/navigation";
 import {useCartStore} from '../../store/cart-store'
+import { AiOutlineMessage } from "react-icons/ai";
+import { FaWhatsapp } from "react-icons/fa";
+import { VscCallOutgoing } from "react-icons/vsc";
 
 const OffPlane = () => {
   const {cart1, toggleCart1} = useCartStore()
@@ -67,23 +67,20 @@ const OffPlane = () => {
         {currentItems.map((item, index) => (
           <div key={index} className="relative w-[445px] group" onClick={() => handleNavigate(item.id)}>
             <Image src={item?.img} alt='image' />
-            <div className="absolute top-[24rem] left-5 bg-[#5f5b5b98] py-6 px-5 rounded-md transition-colors duration-300 group-hover:bg-black">
-              <h1 className="text-[18px] font-[600] text-white max-w-[355px]">{item.keyword}</h1>
-              <p className="text-[13px] font-[300] text-white">{item.place}</p>
-              <div className="flex items-center justify-between gap-4 mt-4">
-                <span className="flex items-center gap-2 text-white text-[12px] font-[300]">
-                  <Image className="w-[20px]" src={icon3} alt='image' /> {item.bed}
-                </span>
-                <span className="flex items-center gap-2 text-white text-[12px] font-[300]">
-                  <Image className="w-[20px]" src={icon2} alt='image' /> {item.bath}
-                </span>
-                <span className="flex items-center gap-2 text-white text-[12px] font-[300]">
-                  <Image className="w-[20px]" src={icon1} alt='image' /> {item.Sqft} sq.ft
-                </span>
-                <button className="py-2 px-2 rounded-md bg-[#AE8E50] text-white">
-                  AED {item.maxprice}
-                </button>
-              </div>
+            <div className="absolute top-[17rem] left-5 bg-[#5f5b5b98] py-6 px-5 rounded-md transition-colors duration-300 group-hover:bg-black flex flex-col gap-4">
+              <h1 className=" text-[20px] font-[600] text-white flex items-center justify-between">{item.title} <span>{item.price}</span></h1>
+               <h2 className=" text-white text-[18px] font-[600]">{item.title1}</h2>
+               <p className=" text-[15px] font-[300] text-white">{item.desc1}</p>
+               <p className=" text-[15px] font-[300] text-white flex items-center justify-between">{item.descl} <span className=" text-[17px] font-[400]">{item.descr}</span></p>
+               <p className=" text-[15px] font-[300] text-white flex items-center justify-between">{item.descl1}  <span className=" text-[17px] font-[400]">{item.descr1}</span></p>
+               <div className=" flex items-center justify-between">
+                <div className=" flex items-center gap-3">
+                <button className=" bg-[#AE8E50] text-white py-2 px-2 rounded-full"><VscCallOutgoing /></button>
+                <button className=" bg-[#AE8E50] text-white py-2 px-2 rounded-full"><AiOutlineMessage /></button>
+                <button className=" bg-[#AE8E50] text-white py-2 px-2 rounded-full"><FaWhatsapp /></button>
+                </div>
+                <button className=" text-[#fff] bg-[#AE8E50] py-2 px-5 rounded-md text-[12px] font-[600]">Find out more</button>
+               </div>
             </div>
              <button onClick={(e) => {
               e.stopPropagation()

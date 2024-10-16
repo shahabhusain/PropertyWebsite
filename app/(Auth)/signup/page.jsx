@@ -14,7 +14,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="flex justify-between gap-12 px-12 bg-[#ECECEC] w-[80%] mx-auto py-12 my-12">
+      <div className="flex justify-between gap-12 px-12 bg-[#ECECEC] w-[92%] mx-auto py-12 my-12">
         <Image className="w-1/2" src={Auth} alt="Auth Image" />
         {open === 0 ? (
           <SignUpForm setOpen={setOpen} />

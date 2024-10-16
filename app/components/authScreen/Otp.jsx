@@ -7,7 +7,6 @@ import {
     InputOTPSeparator,
     InputOTPSlot,
 } from "@/components/ui/input-otp";
-import Link from 'next/link';
 
 const Otp = ({ setOpen }) => {
   const handleSubmit = (e) => {
@@ -18,15 +17,15 @@ const Otp = ({ setOpen }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='w-1/2'>
+    <form onSubmit={handleSubmit} className='w-1/2 px-14 mt-12'>
       <div className='ml-2'>
         <h1 className='text-[#AE8E50] text-[35px] font-[600]'>OTP Verification</h1>
-        <p className='text-[15px] font-[400] text-[#000] mt-3'>
+        <p className='text-[16px] font-[500] text-[#000] mt-3'>
           Enter the OTP sent to your Email
         </p>
       </div>
 
-      <InputOTP maxLength={6} required>
+      <InputOTP maxLength={10} required>
         <InputOTPGroup>
           <InputOTPSlot index={0} required />
           <InputOTPSlot index={1} required />
@@ -53,7 +52,7 @@ const Otp = ({ setOpen }) => {
         >
           Resend
         </button>
-        <h1 className='text-[14px] font-[400] text-center'>
+        <h1 className='text-[14px] font-[400] text-center mt-4'>
           Don’t have an account?{" "}
           <button
             type="button"

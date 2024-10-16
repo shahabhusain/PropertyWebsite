@@ -1,7 +1,7 @@
 'use client';
 
 import React from "react";
-import { Input } from "@/components/ui/input";
+import { AiFillMessage } from "react-icons/ai";
 
 const ForgetPassword = ({ setOpen }) => {
     const handleSubmit = (e) =>{
@@ -11,11 +11,11 @@ const ForgetPassword = ({ setOpen }) => {
       }
     }
   return (
-    <form onSubmit={handleSubmit}   className="w-1/2 flex flex-col gap-3">
+    <form onSubmit={handleSubmit}   className="w-1/2 flex flex-col gap-3 px-14 mt-12">
     <div>
       <div className="">
         <h1 className="text-[#AE8E50] text-[35px] font-[600]">Enter email</h1>
-        <p className="text-[15px] font-[400] text-[#000] mt-3">
+        <p className="text-[16px] font-[500] text-[#000] mt-3">
         Enter your email to reset password
         </p>
 
@@ -27,10 +27,22 @@ const ForgetPassword = ({ setOpen }) => {
 
 
 
-      <div className="flex flex-col gap-2 mt-4">
-        <label htmlFor="email">Email</label>
-        <Input id="email" type="email" placeholder="Email" required />
-      </div>
+      <div className="flex flex-col gap-2">
+          <label htmlFor="name" className=" text-[14px] font-[500] text-black">
+            Email
+          </label>
+          <div className=" flex items-center gap-2 py-2 px-2 rounded-md bg-[#FFFFFF]">
+            <span className=" text-[#888EA8]">
+            <AiFillMessage />
+            </span>
+            <input
+              className=" focus:outline-none focus:border-none"
+              type="email"
+              placeholder="Enter Email"
+              required
+            />
+          </div>
+        </div>
       <div className="mt-20 flex flex-col gap-2 relative ">
         <button
          type="submit"
